@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { GoIssueTracks } from "react-icons/go";
 
 const NavBar = () => {
   return (
     <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
-      <Link href="/">Logo</Link>
+      <Link href="/">
+        <GoIssueTracks />
+      </Link>
       <ul className="flex space-x-6">
         <li>
           <Link href="/">Dashboard</Link>
