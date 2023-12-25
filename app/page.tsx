@@ -1,5 +1,5 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function Home() {
-  return <div>Bug-Vista Home</div>;
+  return <div>Bug-Vista Home</div>
 }
