@@ -4,7 +4,7 @@ import Link from 'next/link'
 const IssuesPage = () => {
   return (
     <div>
-      <Button>
+      <Button variant='classic'>
         <Link href='/issues/new'>New Issue</Link>
       </Button>
     </div>
