@@ -50,6 +50,7 @@ const NavBar = () => {
                     fallback='?'
                     size='2'
                     className='cursor-pointer'
+                    referrerPolicy='no-referrer'
                   />
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Content>
