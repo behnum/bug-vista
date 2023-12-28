@@ -38,9 +38,8 @@ const NavLinks = () => {
         <li key={link.href}>
           <Link
             className={classNames({
-              'text-emerald-800': currentPath === link.href,
-              'text-emerald-500': currentPath !== link.href,
-              'hover:text-emerald-800 transition-colord': true
+              'nav-link': true,
+              '!text-emerald-800': currentPath === link.href
             })}
             href={link.href}
           >
@@ -57,7 +56,12 @@ const AuthStatus = () => {
 
   if (status === 'loading') return null
 
-  if (status === 'unauthenticated') return <Link href='/api/auth/signin'>Sign in</Link>
+  if (status === 'unauthenticated')
+    return (
+      <Link className='nav-link' href='/api/auth/signin'>
+        Sign in
+      </Link>
+    )
 
   return (
     <Box>
