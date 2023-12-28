@@ -1,9 +1,13 @@
 'use client'
 
 import { AlertDialog, Button, Flex } from '@radix-ui/themes'
+import axios from 'axios'
+import { useRouter } from 'next/navigation' // ! next/link is for client-side navigation
 import { RiDeleteBinLine } from 'react-icons/ri'
 
 const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
+  const router = useRouter()
+
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
@@ -19,7 +23,15 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
             <Button color='gray'>Cancel</Button>
           </AlertDialog.Cancel>
           <AlertDialog.Action>
-            <Button variant='classic' color='red'>
+            <Button
+              variant='classic'
+              color='red'
+              onClick={async () => {
+                await axios.delete(`/api/issues/${issueId}`)
+                router.push('/issues')
+                router.refresh()
+              }}
+            >
               Delete
             </Button>
           </AlertDialog.Action>
