@@ -1,8 +1,9 @@
 import prisma from '@/prisma/client'
+import { Flex, Grid } from '@radix-ui/themes'
+import { Metadata } from 'next'
+import IssueChart from './IssueChart'
 import IssueSummary from './IssueSummary'
 import LatestIssues from './LatestIssues'
-import IssueChart from './IssueChart'
-import { Flex, Grid } from '@radix-ui/themes'
 
 export default async function Home() {
   const issueCountes = {
@@ -20,4 +21,21 @@ export default async function Home() {
       <LatestIssues />
     </Grid>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'Bug Vista Issue Tracker - Dashboard',
+  description: 'View the latest issues and charts for Bug Vista Tracker',
+  openGraph: {
+    title: 'Bug Vista Tracker',
+    description: 'Bug Vista Tracker',
+    type: 'website',
+    url: 'https://bug-vista.top/',
+    images: 'https://bug-vista.top/og.png',
+    siteName: 'Bug Vista Tracker',
+    locale: 'en_US'
+  },
+  twitter: {
+    site: '@site'
+  }
 }

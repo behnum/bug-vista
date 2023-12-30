@@ -1,9 +1,10 @@
 import Pagination from '@/app/components/Pagination'
 import prisma from '@/prisma/client'
 import { Status } from '@prisma/client'
+import { Flex } from '@radix-ui/themes'
+import { Metadata } from 'next'
 import IssueTable, { IssueQuery, columnNames } from './IssueTable'
 import IssueToolbar from './IssueToolbar'
-import { Flex } from '@radix-ui/themes'
 
 interface Props {
   searchParams: IssueQuery
@@ -40,5 +41,22 @@ const IssuesPage = async ({ searchParams }: Props) => {
 }
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Bug Vista Issue Tracker - Issue List',
+  description: 'View all issues for Bug Vista Tracker',
+  openGraph: {
+    title: 'Bug Vista Tracker',
+    description: 'Bug Vista Tracker',
+    type: 'website',
+    url: 'https://bug-vista.top/',
+    images: 'https://bug-vista.top/og.png',
+    siteName: 'Bug Vista Tracker',
+    locale: 'en_US'
+  },
+  twitter: {
+    site: '@site'
+  }
+}
 
 export default IssuesPage
