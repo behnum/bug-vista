@@ -15,16 +15,21 @@ const IssuesPage = async ({ searchParams }: Props) => {
 
   const status = statuses.includes(searchParams.status) ? searchParams.status : undefined // Prisma will ignore undefined values
   const where = { status }
-  const orderBy = columnNames.includes(searchParams.orderBy)
-    ? { [searchParams.orderBy]: 'asc' }
-    : undefined // Prisma will ignore undefined values
+
+  const orderBy = columnNames.includes(searchParams.orderBy) ? searchParams.orderBy : 'title' // default to title
+
+  const sortOrder = ['asc', 'desc'].includes(searchParams.sortOrder)
+    ? searchParams.sortOrder
+    : 'asc' // default to ascending
 
   const page = parseInt(searchParams.page) || 1
   const pageSize = 10
 
   const issues = await prisma.issue.findMany({
     where,
-    orderBy,
+    orderBy: {
+      [orderBy]: sortOrder
+    },
     skip: (page - 1) * pageSize,
     take: pageSize
   })
