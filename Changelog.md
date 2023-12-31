@@ -6,5 +6,5 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- Sorting of the list of items
-- Vercel ignore file
+- Sorting of the list of items (#1)
+- Vercel ignore file (#1)
