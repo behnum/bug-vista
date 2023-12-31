@@ -1,6 +1,9 @@
+'use client'
+
 import { Status } from '@prisma/client'
 import { Card, Flex, Text } from '@radix-ui/themes'
 import Link from 'next/link'
+import CountUp from 'react-countup'
 
 interface Props {
   open: number
@@ -27,7 +30,7 @@ const IssueSummary = ({ open, inProgress, closed }: Props) => {
               {container.label}
             </Link>
             <Text size='4' className='font-bold'>
-              {container.value}
+              <CountUp duration={3} end={container.value} />
             </Text>
           </Flex>
         </Card>

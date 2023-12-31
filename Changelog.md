@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Add count-up to dashboard (#4)
+  
 ### Fixed
 
 - Homepage caching issue (#2)
