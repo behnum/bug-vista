@@ -53,4 +53,6 @@ const useUsers = () =>
     retry: 3
   })
 
+export const dynamic = 'force-dynamic'
+
 export default AsigneeSelect
