@@ -25,6 +25,7 @@ const AsigneeSelect = ({ issue }: { issue: Issue }) => {
         toast.error('Failed to update issue.')
       })
       .finally(() => {
+        toast.success('Issue updated.')
         router.refresh() // refresh the page to get the latest data
       })
   }
