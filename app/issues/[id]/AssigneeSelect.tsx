@@ -5,10 +5,12 @@ import { Issue, User } from '@prisma/client'
 import { Select } from '@radix-ui/themes'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import toast, { Toaster } from 'react-hot-toast'
 
 const AsigneeSelect = ({ issue }: { issue: Issue }) => {
   const { data: users, error, isLoading } = useUsers()
+  const router = useRouter()
 
   if (isLoading) return <Skeleton />
 
@@ -21,6 +23,9 @@ const AsigneeSelect = ({ issue }: { issue: Issue }) => {
       })
       .catch(() => {
         toast.error('Failed to update issue.')
+      })
+      .finally(() => {
+        router.refresh() // refresh the page to get the latest data
       })
   }
 
@@ -52,7 +57,5 @@ const useUsers = () =>
     staleTime: 1000 * 60 * 60, // 1 hour
     retry: 3
   })
-
-export const dynamic = 'force-dynamic'
 
 export default AsigneeSelect
