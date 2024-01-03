@@ -12,7 +12,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
   const validation = patchIssueSchema.safeParse(body)
   if (!validation.success) return NextResponse.json(validation.error.format(), { status: 400 })
 
-  const { assignedToUserId, title, description } = body // * destructuring body
+  const { assignedToUserId, title, description, status } = body // * destructuring body
   if (assignedToUserId) {
     const user = await prisma.user.findUnique({ where: { id: assignedToUserId } })
     if (!user) return NextResponse.json({ error: 'User not found.' }, { status: 404 })
@@ -29,7 +29,8 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     data: {
       title,
       description,
-      assignedToUserId
+      assignedToUserId,
+      status
     }
   })
 
