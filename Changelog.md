@@ -2,12 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.0.0] - 2024-01-03
 
 ### Added
 
 - Add count-up to dashboard (#4)
 - Toast success message and refresh page after updating issue
+- Status Update Functionality (#7)
   
 ### Fixed
 
