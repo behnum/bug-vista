@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2024-01-04
+
+### Fixed
+
+- Fix issue with `assignee` not being reloaded (Update Server Component after data has been changed by Client Component) #8
+
 ## [1.0.0] - 2024-01-03
 
 ### Added
