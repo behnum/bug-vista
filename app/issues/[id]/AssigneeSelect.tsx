@@ -55,8 +55,10 @@ const useUsers = () =>
   useQuery<User[]>({
     queryKey: ['users'],
     queryFn: () => axios.get('/api/users').then(res => res.data),
-    staleTime: 1000 * 60 * 60, // 1 hour
-    retry: 3
+    staleTime: 0,
+    retry: 3,
+    refetchOnWindowFocus: true,
+    refetchOnMount: true
   })
 
 export default AsigneeSelect
